@@ -1,0 +1,105 @@
+{% extends "try.html" %}
+{% block body %}
+<style>
+  
+    /* Form Container */
+  .container form {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Headings */
+
+/* Labels */
+label.form-label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* Inputs */
+input.form-control {
+  background-color: #1e1e1e;           /* Dark background for contrast */
+  border: 1px solid #00c6ff;          /* Brighter border for visibility */
+  color: #ffffff;                    /* White text for readability */
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+input.form-control::placeholder {
+  color: #aaaaaa;                    /* Light gray placeholder */
+}
+
+input.form-control:focus {
+  outline: none;
+  border-color: #66e0ff;             /* Glow-like border on focus */
+  box-shadow: 0 0 8px rgba(0, 198, 255, 0.6);
+  background-color: #2b2b2b;
+  color: #fff;
+}
+
+
+/* Submit Button */
+button.btn.btn-info {
+  background-color: var(--accent-blue);
+  border: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button.btn.btn-info:hover {
+  background-color: #009edb;
+  color: #fff;
+}
+</style>
+<h2 class="text-center">Weather Predicton</h2>
+{% if res %}
+  <h3 class="text-center">Predicted Weather : {{res}}</h3>
+{% endif %}
+<form class="form-group" method="post">
+    {% csrf_token %}
+
+    <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="temperature" class="form-label text-light">Temperature (°C)</label>
+            <input type="number" step="0.1" class="form-control" id="temperature" name="temperature" required>
+          </div>
+          <div class="col-md-6">
+            <label for="dew_point" class="form-label text-light">Dew Point Temp (°C)</label>
+            <input type="number" step="0.1" class="form-control" id="dew_point" name="dew_point" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="humidity" class="form-label text-light">Relative Humidity (%)</label>
+            <input type="number" step="0.1" class="form-control" id="humidity" name="humidity" required>
+          </div>
+          <div class="col-md-6">
+            <label for="wind_speed" class="form-label text-light">Wind Speed (km/h)</label>
+            <input type="number" step="0.1" class="form-control" id="wind_speed" name="wind_speed" required>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="visibility" class="form-label text-light">Visibility (km)</label>
+            <input type="number" step="0.1" class="form-control" id="visibility" name="visibility">
+          </div>
+          <div class="col-md-6">
+            <label for="pressure" class="form-label text-light">Pressure (kPa)</label>
+            <input type="number" step="0.1" class="form-control" id="pressure" name="pressure" required>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-info px-4 py-2">Predict</button>
+        </div>
+
+</form>
+{% endblock body %}

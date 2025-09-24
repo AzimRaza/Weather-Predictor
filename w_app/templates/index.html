@@ -1,0 +1,131 @@
+{% extends "try.html" %}
+{% block body %}
+<style>
+    .features-section {
+  color: #e0eaff;
+  background: #0a0f1c;
+  padding: 40px 0;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.feature-box {
+  background: #11182d;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 255, 255, 0.05);
+}
+
+.feature-box h4 {
+  color: #00ffe1;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.feature-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+}
+
+.feature-box p {
+  color: #b0c7e4;
+}
+
+.feature-box .btn {
+  border-color: #00ffe1;
+  color: #00ffe1;
+  font-weight: 500;
+}
+
+.feature-box .btn:hover {
+  background-color: #00ffe1;
+  color: #000;
+}
+
+.why-choose-us {
+  background-color: #0a0f1c;
+  padding: 50px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+}
+
+.why-choose-us h3 {
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.choose-box {
+  background-color: #11182d;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.choose-box h5 {
+  color: #00ffe1;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.choose-box p {
+  color: #b0c7e4;
+}
+
+.choose-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+</style>
+<div class="container my-5 px-4 features-section">
+  <div class="row text-center">
+    <!-- Weather Prediction Entry -->
+    <div class="col-md-6 mb-4">
+      <div class="feature-box">
+        <h4>Enter Weather Details</h4>
+        <p>Enter weather parameters like temperature, humidity, and wind speed.</p>
+        <p>Get instant AI-powered predictions based on the values you provide.</p>
+        <a href="{% url 'prediction' %}" class="btn btn-outline-info mt-3">Predict Now</a>
+      </div>
+    </div>
+
+    <!-- Prediction History -->
+    <div class="col-md-6 mb-4">
+      <div class="feature-box">
+        <h4>Prediction History</h4>
+        <p>View previous prediction results and improve your forecasting decisions.</p>
+        <p>Monitor how predictions evolve with changing inputs.</p>
+        <a href="{% url 'history' %}" class="btn btn-outline-info mt-3">View History</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5 px-4 why-choose-us">
+  <h3 class="text-center text-info mb-5">Why Choose Us?</h3>
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="choose-box">
+        <h5>AI-Powered Predictions</h5>
+        <p>We use machine learning models to provide accurate and fast weather forecasts.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="choose-box">
+        <h5>User-Friendly Interface</h5>
+        <p>Our platform is simple, intuitive, and built for easy data entry and result viewing.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="choose-box">
+        <h5>Reliable History Tracking</h5>
+        <p>Access all your previous predictions anytime to analyze and improve insights.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

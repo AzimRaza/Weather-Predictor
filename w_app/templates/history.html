@@ -1,0 +1,71 @@
+{% extends "try.html" %}
+{% block body %}
+<style>
+    .history-container {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  overflow-x: auto;
+}
+
+.history-container table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.history-container thead {
+  background: linear-gradient(to right, #3a7bd5, #00c6ff);
+  color: white;
+}
+
+.history-container th,
+.history-container td {
+  padding: 12px 15px;
+  border: 1px solid #444;
+  text-align: center;
+}
+
+.history-container tbody tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.history-container tbody tr:hover {
+  background-color: #333;
+}
+
+</style>
+<h2>Prediction History</h2>
+<div class="history-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Temperature</th>
+                <th>Dew Point Temperature</th>
+                <th>Relative Humidity</th>
+                <th>Wind Speed</th>
+                <th>Visibility</th>
+                <th>Pressure</th>
+                <th>Forecast</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for h in his %}
+                <tr>
+                    <td>{{h.id}}</td>
+                    <td>{{h.temperature}}</td>
+                    <td>{{h.dew_point}}</td>
+                    <td>{{h.humidity}}</td>
+                    <td>{{h.wind_speed}}</td>
+                    <td>{{h.visibility}}</td>
+                    <td>{{h.pressure}}</td>
+                    <td>{{h.res}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
